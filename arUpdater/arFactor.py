@@ -20,7 +20,6 @@ import warnings
 warnings.filterwarnings("ignore")
 
 class Signal(data_source.DataManager):
-
     def cal_pca(self, pctArray, paramDict):
         num = len(paramDict['symbols'])
         pca = PCA(n_components=num)
@@ -51,9 +50,10 @@ class Signal(data_source.DataManager):
         return res
 
 if __name__ == '__main__':
-    with open('arParam5Min.json') as param:
+    jsonName = 'arParam5Min.json'
+    with open(jsonName) as param:
         paramDict = json.load(param)
-    dataToolClass = readDataTool.DataTool(paramDict, './arParam5Min.json')
-    symbolsDict = dataToolClass.get_data('vector_ar_cache')
-    arRes = Signal(symbolsDict).cal_symbols_ar(paramDict)
+    dataToolClass = readDataTool.DataTool(paramDict, './'+jsonName)
+    symbolsDataDict = dataToolClass.get_data('vector_cache')
+    arRes = Signal(symbolsDataDict).cal_symbols_ar(paramDict)
     dataToolClass.upload_data(arRes, paramDict['factorName'], paramDict['symbols'])
