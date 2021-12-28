@@ -1,0 +1,1 @@
+{"MONGODB_HOST": "172.16.20.81", "KLINE_DB": "Kline_1Min_Auto_Db_Plus", "factorName": "absorptionRatio5Longest", "sigPeriod": ["5min"], "symbols": ["bnb", "btc", "eth", "ltc", "bch"], "firstTimeRun": 1, "ar_param": [12, 18, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144], "lastUpdateTime": 1640633100}
